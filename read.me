@@ -1,0 +1,44 @@
+Nearest Neighbor
+Decision Trees
+---------------- Linear Regression
+
+----------------- wine
+heart disease
+
+
+medir a acuracia com 100
+
+
+
+sci-hub
+
+////////////////////////////////
+acuracias = []
+
+for x in range(0, 100):
+    dataWine = pd.read_csv(
+        "https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data", header=None)
+
+    labels = dataWine[4]
+    data = dataWine.drop(4, axis=1)
+
+    # data_train, data_test, label_train, label_test = train_test_split(
+    #     data, labels, test_size=0.2)
+
+
+    model = LinearRegression()
+    model.fit(x, y)
+    teste = model.predict(data_test)
+
+    acuracia = accuracy_score(teste, label_test)*100
+    acuracias.append(acuracia)
+
+
+print(np.mean(acuracia))
+
+
+# acuracia = accuracy_score(teste, label_test)*100
+# acuracias.append(acuracia)
+
+
+# print(np.mean(acuracia))

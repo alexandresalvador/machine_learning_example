@@ -10,8 +10,6 @@ conjuntoTreinamento = datairis.sample(60)
 labels_treinamento = np.array(conjuntoTreinamento.get(4))
 dados_treinamento = np.array(conjuntoTreinamento)[:, :4]
 
-#print(dados_treinamento)
-#print(labels_treinamento)
 
 modelo = MultinomialNB()
 modelo.fit(dados_treinamento, labels_treinamento)
@@ -22,3 +20,5 @@ teste = [
 ]
 
 print(modelo.predict(teste))
+
+
