@@ -1,7 +1,7 @@
 from sklearn.naive_bayes import MultinomialNB
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import numpy as np
 
 acuracias = []
@@ -29,10 +29,19 @@ for x in range(0, 100):
 
     modelo = MultinomialNB()
     modelo.fit(data_train, label_train)
-    teste = modelo.predict(data_test)
-    # print(teste)
-    acuracia = accuracy_score(teste, label_test)*100
+    predicao = modelo.predict(data_test)
+    # print(predicao)
+    acuracia = accuracy_score(predicao, label_test)*100
     acuracias.append(acuracia)
     # print(acuracia)
 
-print(np.mean(acuracia))
+print(np.mean(acuracia)) # media
+# np.std - desvio padrao
+# np.min -vl minimo
+# np.max - maximo
+# 
+# 
+#print(label_test)
+print("Matriz de confusão")
+print(confusion_matrix(predicao, label_test))
+print(classification_report(label_test, predicao))

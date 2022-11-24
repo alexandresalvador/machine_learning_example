@@ -13,3 +13,5 @@ results = model.fit(x,y)
 # print the coefficients
 
 print (model.intercept_, model.coef_)
+
+
