@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import numpy as np
 from sklearn import linear_model as lm
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 acuracias = []
 
@@ -19,12 +19,14 @@ for x in range(0, 2):
 
     model = lm.LinearRegression()   
     model.fit(data_train, label_train)
-    teste = model.predict(data_test)
+    predicao = model.predict(data_test)
 
 
     acuracia = accuracy_score
-    (teste, label_test) * 100
+    (predicao, label_test) * 100
     acuracias.append(acuracia)
 
 
-print(np.mean(acuracia))
+print("Matriz de confusão")
+print(confusion_matrix(predicao, label_test))
+print(classification_report(label_test, predicao))
